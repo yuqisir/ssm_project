@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itheima.mapper.ProductMapper">
+    <!--根据产品ID查询-->
+    <select id="findProductById" parameterType="string" resultType="product">
+         SELECT * FROM PRODUCT WHERE id=#{id}
+    </select>
+
     <select id="findAll" resultType="product">
         SELECT * FROM PRODUCT
     </select>

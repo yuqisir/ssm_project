@@ -7,4 +7,6 @@ import java.util.List;
 public interface ProductMapper {
 
     List<Product> findAll() throws Exception;
+
+    Product findProductById(String pid) throws Exception;
 }
