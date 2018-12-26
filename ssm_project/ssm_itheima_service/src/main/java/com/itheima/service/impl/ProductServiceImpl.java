@@ -1,5 +1,6 @@
 package com.itheima.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.itheima.domain.Product;
 import com.itheima.mapper.ProductMapper;
 import com.itheima.service.ProductService;
@@ -14,7 +15,8 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     private ProductMapper productMapper;
     @Override
-    public List<Product> findAll() throws Exception {
+    public List<Product> findAll(Integer pageNum,Integer pageSize) throws Exception {
+        PageHelper.startPage(pageNum,pageSize);
         return productMapper.findAll();
     }
 }

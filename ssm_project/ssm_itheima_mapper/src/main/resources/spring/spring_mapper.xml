@@ -21,6 +21,21 @@
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.itheima.domain"/>
+        <!--pageHelper是mybatis分页工具-->
+        <property name="plugins">
+            <array>
+                <!-- 传入插件的对象 -->
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <props>
+                            <!--数据库的方言-->
+                            <prop key="helperDialect">oracle</prop>
+                            <prop key="reasonable">true</prop>
+                        </props>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
     <!--获取Mapper代理对象-->
     <bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
