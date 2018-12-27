@@ -3,6 +3,7 @@ package com.itheima.domain;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Orders implements Serializable{
     private String id;
@@ -18,6 +19,26 @@ public class Orders implements Serializable{
 
     //建立订单与产品的关联关系：一对一
     private Product product;
+    //建立订单与会员的关联关系：一对一
+    private Member member;
+    //建立订单与旅客的关联关系：一对多
+    private List<Traveller> travellers;
+
+    public List<Traveller> getTravellers() {
+        return travellers;
+    }
+
+    public void setTravellers(List<Traveller> travellers) {
+        this.travellers = travellers;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 
     public Product getProduct() {
         return product;

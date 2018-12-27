@@ -10,11 +10,17 @@
         <!--配置订单与产品的一对一的关联关系
             column:用于查询条件的传值
         -->
-        <association property="product" javaType="product" column="productId" select="com.itheima.mapper.ProductMapper.findProductById"/>
+        <association property="product" javaType="product" column="productId" select="com.itheima.mapper.ProductMapper.findProductById" fetchType="lazy"/>
+        <association property="member" javaType="member" column="memberId" select="com.itheima.mapper.MemberMapper.findById" fetchType="lazy"/>
+        <collection property="travellers" ofType="traveller" column="id" select="com.itheima.mapper.TravellerMapper.findByOrdersId" fetchType="lazy"/>
     </resultMap>
 
     <!--遍历订单-->
     <select id="findAll" resultMap="orderMap">
         SELECT * FROM ORDERS
+    </select>
+
+    <select id="findById" parameterType="string" resultMap="orderMap">
+         SELECT * FROM ORDERS WHERE id=#{oid}
     </select>
 </mapper>

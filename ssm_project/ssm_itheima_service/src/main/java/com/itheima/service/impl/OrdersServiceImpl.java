@@ -17,4 +17,9 @@ public class OrdersServiceImpl implements OrdersService {
     public List<Orders> findAll() throws Exception {
         return ordersMapper.findAll();
     }
+
+    @Override
+    public Orders findById(String id) throws Exception {
+        return ordersMapper.findById(id);
+    }
 }

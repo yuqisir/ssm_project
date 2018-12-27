@@ -20,4 +20,11 @@ public class OrdersController {
         model.addAttribute("ordersList",ordersList);
         return "orders-list";
     }
+    //根据ID查询订单详情
+    @RequestMapping("/findById")
+    public String findOrdersById(String id,Model model) throws Exception {
+        Orders orders=ordersService.findById(id);
+        model.addAttribute("orders",orders);
+        return "orders-show";
+    }
 }

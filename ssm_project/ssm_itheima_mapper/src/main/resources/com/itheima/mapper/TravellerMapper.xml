@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.TravellerMapper">
+    <!--根据ID查询会员信息-->
+    <select id="findByOrdersId" parameterType="string" resultType="traveller">
+         SELECT * FROM TRAVELLER WHERE  id in (SELECT TRAVELLERID FROM ORDER_TRAVELLER WHERE ORDERID=#{oid})
+    </select>
+
+</mapper>
