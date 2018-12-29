@@ -7,4 +7,8 @@
     <select id="findByUserId" parameterType="string" resultType="roles">
       select * from role where id in( select roleid from users_role where userid =#{uid} )
     </select>
+
+    <select id="findAll" resultType="roles">
+        select * from role
+    </select>
 </mapper>

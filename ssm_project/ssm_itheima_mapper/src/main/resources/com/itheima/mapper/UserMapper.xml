@@ -21,4 +21,13 @@
     <insert id="save" parameterType="userInfo">
         INSERT INTO USERS(email,username,password,phonenum,status) VALUES (#{email},#{username},#{password},#{phoneNum},#{status})
     </insert>
+
+    <select id="findById" parameterType="string" resultType="userInfo">
+        SELECT * FROM users WHERE id=#{uid}
+    </select>
+
+
+    <update id="updateByUsername" parameterType="userInfo">
+        UPDATE USERS SET EMAIL=#{email},PASSWORD=#{password},STATUS=#{status},PHONENUM=#{phoneNum} WHERE USERNAME=#{username}
+    </update>
 </mapper>

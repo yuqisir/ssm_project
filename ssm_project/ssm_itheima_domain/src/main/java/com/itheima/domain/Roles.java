@@ -7,6 +7,17 @@ public class Roles implements Serializable {
     private String roleName;
     private String roleDesc;
 
+    //状态码：判断当前用户是否有此角色，如果有则为flag=1
+    private Integer flag;
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
     public String getId() {
         return id;
     }

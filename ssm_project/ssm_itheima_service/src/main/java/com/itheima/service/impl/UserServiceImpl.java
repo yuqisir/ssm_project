@@ -55,4 +55,14 @@ public class UserServiceImpl implements UserService{
     public void save(UserInfo userInfo) throws Exception{
         userMapper.save(userInfo);
     }
+
+    @Override
+    public UserInfo findById(String id) throws Exception{
+        return userMapper.findById(id);
+    }
+
+    @Override
+    public void updateByUsername(UserInfo userInfo) throws Exception {
+        userMapper.updateByUsername(userInfo);
+    }
 }
