@@ -78,4 +78,11 @@ public class UserController {
         return "user-role-add";
     }
 
+
+    @RequestMapping("/findDetail")
+    public String findDetail(String username,Model model) throws Exception{
+        UserInfo user = userService.findByUsername(username);
+        model.addAttribute("user",user);
+        return "user-show";
+    }
 }

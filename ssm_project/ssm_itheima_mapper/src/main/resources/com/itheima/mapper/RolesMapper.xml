@@ -4,7 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itheima.mapper.RolesMapper">
 
-    <select id="findByUserId" parameterType="string" resultType="roles">
+    <resultMap id="rolesMap" type="roles">
+        <id column="id" property="id"/>
+        <!--配置角色和权限的映射关系：一对多-->
+        <collection property="permissions" ofType="permission" column="id" select="com.itheima.mapper.PermissionMapper.findByRoleId" fetchType="lazy"/>
+    </resultMap>
+
+    <select id="findByUserId" parameterType="string" resultMap="rolesMap">
       select * from role where id in( select roleid from users_role where userid =#{uid} )
     </select>
 

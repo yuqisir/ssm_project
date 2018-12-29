@@ -65,4 +65,9 @@ public class UserServiceImpl implements UserService{
     public void updateByUsername(UserInfo userInfo) throws Exception {
         userMapper.updateByUsername(userInfo);
     }
+
+    @Override
+    public UserInfo findByUsername(String username) throws Exception {
+        return userMapper.findByUsername(username);
+    }
 }

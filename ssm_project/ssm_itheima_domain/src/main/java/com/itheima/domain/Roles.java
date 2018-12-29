@@ -1,11 +1,22 @@
 package com.itheima.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Roles implements Serializable {
     private String id;
     private String roleName;
     private String roleDesc;
+    //建立角色与权限的关联关系：一对多
+    private List<Permission> permissions;
+
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
+    }
 
     //状态码：判断当前用户是否有此角色，如果有则为flag=1
     private Integer flag;

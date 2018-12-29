@@ -14,4 +14,5 @@ public interface UserMapper {
     UserInfo findById(String id) throws Exception;
 
     void updateByUsername(UserInfo userInfo) throws Exception;
+
 }

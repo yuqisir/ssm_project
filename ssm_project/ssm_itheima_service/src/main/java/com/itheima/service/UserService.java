@@ -13,4 +13,6 @@ public interface UserService extends UserDetailsService{
     UserInfo findById(String id) throws Exception;
 
     void updateByUsername(UserInfo userInfo) throws Exception;
+
+    UserInfo findByUsername(String username) throws Exception;
 }
